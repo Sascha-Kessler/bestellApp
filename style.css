@@ -1,0 +1,17 @@
+header{
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+header img{
+    height: 48px;
+    padding: 12px 0px 12px 12px;
+}
+
+.above_dishes_section img{
+  height: 500px;
+  aspect-ratio: 5/1;
+  object-fit: cover;
+}
