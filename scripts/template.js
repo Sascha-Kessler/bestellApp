@@ -2,8 +2,7 @@
 function getMainDishesTemplate(dishRefIndex){
     let TemplateDish = dishes[dishRefIndex];
     
-    return 
-        `
+    return `
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
