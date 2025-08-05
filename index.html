@@ -7,8 +7,11 @@
     <link rel="icon" type="image/x-icon" href="./assets/Favicon/favicon.ico">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/standard.css">
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="script.js"></script>
 </head>
-<body>
+<body onload="renderDishes()">
     <header>
         <img src="./assets/Logo/Bestell App- Logo.svg" alt="Logo der Bestellapp">
         <nav>
@@ -33,19 +36,8 @@
                 <figcaption>
                     <h2>Hauptgerichte</h2>
                 </figcaption>
-                <section>
-                    <table>
-                        <tr>
-                            <th>Pizza Magerita</th>
-                            <th><button>Add</button></th>
-                        </tr>
-                        <tr>
-                            <td>9,00€</td>
-                        </tr>
-                        <tr>
-                            <td>mit Tomatensauce und Käse</td>
-                        </tr>
-                    </table>
+                <section id="main_dishes_section">
+                
                 </section>
             </figure>
         </article>
