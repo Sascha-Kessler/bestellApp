@@ -6,7 +6,7 @@ function getMainDishesTemplate(dishRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button>Add</button></th>
+                    <th><button>+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>

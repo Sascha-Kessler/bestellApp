@@ -29,6 +29,11 @@ table{
   width: 100%;
 }
 
+tr{
+display: flex;
+justify-content: space-between;
+}
+
 .content{
   width: calc(100% - 300px);
   flex-grow: 1;
