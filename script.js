@@ -18,11 +18,18 @@ function renderDishes(){
         }
 }
 
-function addDishToBasket(basketIndex){
-    basketRef = dishes[basketIndex];
+function addDishToBasket(basketAddIndex){
+   let basketRef = dishes[basketAddIndex];
     basket.push(basketRef); 
     
-    renderBasekt()
+    renderBasekt();
+}
+
+function deleteDishFromBasket(basketRefIndex){
+   let basketRemoveRef = basket.splice([basketRefIndex],1);
+  basketRemoveRef = basket;
+
+  renderBasekt();
 }
 
 function renderBasekt(){

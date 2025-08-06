@@ -18,14 +18,14 @@ function getMainDishesTemplate(dishRefIndex){
         `
 }
 
-function getBasketTemplate(indexBasket){
-    let TemplateBasket = basket[indexBasket];
+function getBasketTemplate(basketRefIndex){
+    let TemplateBasket = basket[basketRefIndex];
 
     return `
             <table>
                 <tr>
                     <th>${TemplateBasket.name}</th>
-                    <th><button>+</button></th>
+                    <th><button>+</button><button onclick="deleteDishFromBasket(${basketRefIndex})">-</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateBasket.price.toFixed(2)}€</td>
