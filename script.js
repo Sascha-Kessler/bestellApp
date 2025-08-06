@@ -25,8 +25,8 @@ function addDishToBasket(basketAddIndex){
     renderBasekt();
 }
 
-function deleteDishFromBasket(basketRefIndex){
-   let basketRemoveRef = basket.splice([basketRefIndex],1);
+function deleteDishFromBasket(basketDeleteIndex){
+   let basketRemoveRef = basket.splice([basketDeleteIndex],1);
   basketRemoveRef = basket;
 
   renderBasekt();
@@ -36,8 +36,8 @@ function renderBasekt(){
     let myBasket = document.getElementById('basket');
     myBasket.innerHTML = "";
 
-    for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-        myBasket.innerHTML += getBasketTemplate(indexBasket);
-        
-    }
+       for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+           myBasket.innerHTML += getBasketTemplate(indexBasket);
+           
+       }
 }
