@@ -1,5 +1,6 @@
 let keys = Object.keys(myDishes);
 let dishes = [];
+let basket = [];
 
 function init(){
     renderDishes();
@@ -15,4 +16,21 @@ function renderDishes(){
         for (let dishRefIndex = 0; dishRefIndex < dishes.length; dishRefIndex++) {
             dishRef.innerHTML += getMainDishesTemplate(dishRefIndex);
         }
+}
+
+function addDishToBasket(basketIndex){
+    basketRef = dishes[basketIndex];
+    basket.push(basketRef); 
+    
+    renderBasekt()
+}
+
+function renderBasekt(){
+    let myBasket = document.getElementById('basket');
+    myBasket.innerHTML = "";
+
+    for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+        myBasket.innerHTML += getBasketTemplate(indexBasket);
+        
+    }
 }
