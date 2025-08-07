@@ -25,7 +25,10 @@ function getBasketTemplate(basketRefIndex){
             <table>
                 <tr>
                     <th>${TemplateBasket.name}</th>
-                    <th><button>+</button><button onclick="deleteDishFromBasket(${basketRefIndex})">-</button></th>
+                    <th><button onclick="basketDishValue(${basketRefIndex})">+</button>
+                        <input  id="basketDishesValue${basketRefIndex}" type="number" value="1">
+                        <button onclick="deleteDishFromBasket(${basketRefIndex})">-</button>   
+                    </th>
                 </tr>
                 <tr>
                     <td>${TemplateBasket.price.toFixed(2)}€</td>

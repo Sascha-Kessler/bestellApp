@@ -37,7 +37,12 @@ function renderBasekt(){
     myBasket.innerHTML = "";
 
        for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-           myBasket.innerHTML += getBasketTemplate(indexBasket);
-           
+           myBasket.innerHTML += getBasketTemplate(indexBasket);  
        }
+}
+
+function basketDishValue(ref){
+    let dishValue = document.getElementById('basketDishesValue'+ref);
+    
+    dishValue.value ++;   
 }

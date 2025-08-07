@@ -21,3 +21,7 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
+
+input{
+  width: 30px;
+}
