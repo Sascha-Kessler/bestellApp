@@ -34,8 +34,8 @@ function addDishToBasket(basketAddIndex){
     renderBasekt();
 }
 
-function DecreaseBasketDishValue(basketDecreaseIndex){
-    let dishValue = document.getElementById('basketDishesValue'+basketDecreaseIndex);
+function DecreaseBasketDishValue(dishID){
+    let dishValue = document.getElementById(`basketDishesValue${dishID}`);
     dishValue.value -- ;
 
     if (dishValue.value < 1) {
@@ -46,8 +46,8 @@ function DecreaseBasketDishValue(basketDecreaseIndex){
     }  
 }
 
-function IncreaseBasketDishValue(basketIncreaseIndex){
-    let dishValue = document.getElementById('basketDishesValue'+basketIncreaseIndex);
+function IncreaseBasketDishValue(dishID){
+    let dishValue = document.getElementById(`basketDishesValue${dishID}`);
     
     dishValue.value ++;   
 }

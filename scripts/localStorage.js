@@ -1,5 +1,5 @@
-function saveDishesInputValueToLocalStorage(basketRefIndex){
-  let inputField =  document.getElementById(`basketDishesValue${basketRefIndex}`);
+function saveDishesInputValueToLocalStorage(dishID){
+  let inputField =  document.getElementById(`basketDishesValue${dishID}`);
   let inputValue = inputField.value;
-  localStorage.setItem(`dishValue${basketRefIndex}`, inputValue);
+  localStorage.setItem(`dishValue${dishID}`, inputValue);
 }
