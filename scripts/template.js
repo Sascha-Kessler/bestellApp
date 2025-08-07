@@ -22,6 +22,7 @@ function getBasketTemplate(basketRefIndex){
     let TemplateBasket = basket[basketRefIndex];
     let dishID = TemplateBasket.name.replace(/\s+/g, '_');
     let savedValue = localStorage.getItem(`dishValue${dishID}`) || 1; 
+    
     return `
             <table>
                 <tr>
