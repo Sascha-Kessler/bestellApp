@@ -39,11 +39,19 @@ function DecreaseBasketDishValue(dishID){
     dishValue.value -- ;
 
     if (dishValue.value < 1) {
-        let basketRemoveRef = basket.splice([basketDecreaseIndex],1);
-        basketRemoveRef = basket;
+        for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+            let currentDishID = basket[indexBasket].name.replace(/\s+/g, '_');
 
+            if (currentDishID === dishID){
+                basket.splice(indexBasket, 1);
+                break;
+            }
+            
+        }
+      
         renderBasekt();   
     }  
+    
 }
 
 function IncreaseBasketDishValue(dishID){
