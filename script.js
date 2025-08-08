@@ -35,53 +35,49 @@ function addDishToBasket(basketAddIndex){
     renderBasekt();
 }
 
-function DecreaseBasketDishValue(dishID){
+function DecreaseBasketDishValue(dishID, indexBasket){
     let dishValue = document.getElementById(`basketDishesValue${dishID}`);
     dishValue.value -- ;
 
     if (dishValue.value < 1) {
-        for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-            let currentDishID = basket[indexBasket].name.replace(/\s+/g, '_');
-
-            if (currentDishID === dishID){
-                basket.splice(indexBasket, 1);
-            } 
-        }
-        renderBasekt();   
-    }      
+        basket.splice(indexBasket, 1);
+    } else {
+        if (basket[indexBasket]) {
+            basket[indexBasket].amount = Number(dishValue.value);
+            }      
+    }    
+    renderBasekt();
+    calculatePrice();  
 }
 
-function IncreaseBasketDishValue(dishID, ){
+function IncreaseBasketDishValue(dishID, indexBasket){
     let dishValue = document.getElementById(`basketDishesValue${dishID}`);
     
-    dishValue.value ++;   
-    basketDishesAmount[dishID] ++;
-    document.getElementById(`basketDishesValue${dishID}`).value = basketDishesAmount[dishID];
-   
-    console.log(basketDishesAmount);
+    dishValue.value ++; 
     
+    if (basket[indexBasket]) {
+        basket[indexBasket].amount = Number(dishValue.value);
+    } 
 }
 
 function calculatePrice(){
-    let priceDishes = document.getElementById('dishes_price');
-    let myPriceDishes = [];
-        priceDishes.innerHTML = "";
-        for (let indexDishesBasket = 0; indexDishesBasket < basket.length; indexDishesBasket++) {
-             myPriceDishes.push(basket[indexDishesBasket].price)     
-        }
+    let dishesTotal = 0;
+    let deliveryFee;
+    
+    for (let index = 0; index < basket.length; index++) {
+        let dish = basket[index];
+        let amount = dish.amount || 1;
+        dishesTotal += dish.price*amount; 
+    } if (dishesTotal < 20) {
+        deliveryFee = 5;
+    } else {
+        deliveryFee = 0;
+    }
 
-    let dishesPriceAdd = 0;
+    let totalPrice = dishesTotal + deliveryFee;
 
-        for (let indexDishesSum = 0; indexDishesSum < myPriceDishes.length; indexDishesSum++) {
-            dishesPriceAdd += myPriceDishes[indexDishesSum];
-        }
-
-    priceDishes.innerHTML = dishesPriceAdd.toFixed(2) + '€';
-
-    let deliveryCosts = document.getElementById('delivery_costs');
-    let myDeliverCosts = 5;
-    deliveryCosts.innerHTML = myDeliverCosts.toFixed(2) + '€';
-
+    document.getElementById('dishes_price').innerHTML = dishesTotal.toFixed(2) + '€';
+    document.getElementById('delivery_costs').innerHTML = deliveryFee.toFixed(2) + '€';
+    document.getElementById('total_price').innerHTML = totalPrice.toFixed(2) + '€';  
 }
 
-console.log(basket)

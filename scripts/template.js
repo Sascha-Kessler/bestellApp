@@ -27,9 +27,9 @@ function getBasketTemplate(basketRefIndex){
             <table>
                 <tr>
                     <th>${TemplateBasket.name}</th>
-                    <th><button onclick="IncreaseBasketDishValue('${dishID}'); saveDishesInputValueToLocalStorage('${dishID}'); calculatePrice(${basketRefIndex})">+</button>
-                        <input  id="basketDishesValue${dishID}" type="number" value="${savedValue}">
-                        <button onclick="DecreaseBasketDishValue('${dishID}'); saveDishesInputValueToLocalStorage('${dishID}')">-</button>   
+                    <th><button onclick="IncreaseBasketDishValue('${dishID}', ${basketRefIndex}); saveDishesInputValueToLocalStorage('${dishID}'); calculatePrice(${basketRefIndex})">+</button>
+                        <input  id="basketDishesValue${dishID}" type="number" value="${TemplateBasket.amount}" readonly >
+                        <button onclick="DecreaseBasketDishValue('${dishID}', ${basketRefIndex}); saveDishesInputValueToLocalStorage('${dishID}')">-</button>   
                     </th>
                 </tr>
                 <tr>
