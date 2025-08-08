@@ -1,6 +1,7 @@
 let keys = Object.keys(myDishes);
 let dishes = [];
 let basket = [];
+let basketDishesAmount = [];
 
 function init(){
     renderDishes();
@@ -44,19 +45,43 @@ function DecreaseBasketDishValue(dishID){
 
             if (currentDishID === dishID){
                 basket.splice(indexBasket, 1);
-                break;
-            }
-            
+            } 
         }
-      
         renderBasekt();   
-    }  
-    
+    }      
 }
 
-function IncreaseBasketDishValue(dishID){
+function IncreaseBasketDishValue(dishID, ){
     let dishValue = document.getElementById(`basketDishesValue${dishID}`);
     
     dishValue.value ++;   
+    basketDishesAmount[dishID] ++;
+    document.getElementById(`basketDishesValue${dishID}`).value = basketDishesAmount[dishID];
+   
+    console.log(basketDishesAmount);
+    
 }
 
+function calculatePrice(){
+    let priceDishes = document.getElementById('dishes_price');
+    let myPriceDishes = [];
+        priceDishes.innerHTML = "";
+        for (let indexDishesBasket = 0; indexDishesBasket < basket.length; indexDishesBasket++) {
+             myPriceDishes.push(basket[indexDishesBasket].price)     
+        }
+
+    let dishesPriceAdd = 0;
+
+        for (let indexDishesSum = 0; indexDishesSum < myPriceDishes.length; indexDishesSum++) {
+            dishesPriceAdd += myPriceDishes[indexDishesSum];
+        }
+
+    priceDishes.innerHTML = dishesPriceAdd.toFixed(2) + '€';
+
+    let deliveryCosts = document.getElementById('delivery_costs');
+    let myDeliverCosts = 5;
+    deliveryCosts.innerHTML = myDeliverCosts.toFixed(2) + '€';
+
+}
+
+console.log(basket)

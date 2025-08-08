@@ -6,7 +6,7 @@ function getMainDishesTemplate(dishRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button onclick="addDishToBasket(${dishRefIndex})">+</button></th>
+                    <th><button onclick="addDishToBasket(${dishRefIndex}); calculatePrice(${dishRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -27,7 +27,7 @@ function getBasketTemplate(basketRefIndex){
             <table>
                 <tr>
                     <th>${TemplateBasket.name}</th>
-                    <th><button onclick="IncreaseBasketDishValue('${dishID}'); saveDishesInputValueToLocalStorage('${dishID}')">+</button>
+                    <th><button onclick="IncreaseBasketDishValue('${dishID}'); saveDishesInputValueToLocalStorage('${dishID}'); calculatePrice(${basketRefIndex})">+</button>
                         <input  id="basketDishesValue${dishID}" type="number" value="${savedValue}">
                         <button onclick="DecreaseBasketDishValue('${dishID}'); saveDishesInputValueToLocalStorage('${dishID}')">-</button>   
                     </th>
