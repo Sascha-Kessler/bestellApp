@@ -58,6 +58,7 @@ function IncreaseBasketDishValue(dishID, indexBasket){
     if (basket[indexBasket]) {
         basket[indexBasket].amount = Number(dishValue.value);
     } 
+    renderBasekt();
 }
 
 function calculatePrice(){

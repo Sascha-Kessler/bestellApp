@@ -25,7 +25,8 @@ header img{
 }
 
 table{
-  border: 1px solid black;
+  border: 1px solid grey;
+  border-radius: 5px;
   width: 100%;
 }
 
@@ -48,4 +49,30 @@ justify-content: space-between;
   flex-grow: 1;
   border: 1px solid black;
   padding-bottom: 50px;
+}
+
+.main_dishes h2 {
+  background-color: orange;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+.basket_table {
+  display: flex;
+}
+
+.basket_table th {
+  font-size: 24px;
+}
+
+.basket_table tr {
+  align-items: center;
+}
+
+.basket_table td {
+  display: flex;
+  padding: 5px;
+  gap: 5px;
 }
