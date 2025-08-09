@@ -50,6 +50,12 @@ function DecreaseBasketDishValue(dishID, indexBasket){
     calculatePrice();  
 }
 
+function deleteFromBasket( indexBasket){
+    basket.splice(indexBasket, 1);
+    renderBasekt();
+    calculatePrice(); 
+}
+
 function IncreaseBasketDishValue(dishID, indexBasket){
     let dishValue = document.getElementById(`basketDishesValue${dishID}`);
     

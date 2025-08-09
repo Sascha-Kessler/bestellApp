@@ -25,3 +25,8 @@ button:active {
 input{
   width: 30px;
 }
+
+.trash_button {
+  height: 24px;
+  cursor: pointer;
+}

@@ -36,6 +36,9 @@ function getBasketTemplate(basketRefIndex){
                         <button onclick="IncreaseBasketDishValue('${dishID}', ${basketRefIndex}); saveDishesInputValueToLocalStorage('${dishID}'); calculatePrice(${basketRefIndex})">+</button>  
                     </td>
                     <td>${dishTotal}</td>
+                    <td>
+                        <img onclick="deleteFromBasket('${dishID}, ${basketRefIndex}')" class="trash_button" src="./assets/icons/trash_button.png" alt="trash_button">
+                    </td>
                 </tr>   
            </table>
     `

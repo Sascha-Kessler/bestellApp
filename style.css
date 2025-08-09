@@ -10,11 +10,25 @@ header img{
     padding: 12px 0px 12px 12px;
 }
 
+.main_section_header{
+  background-color: white;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main_section_header a{
+  color: orange;
+}
+
 .banner img{
   height: auto;
   max-width: 100%;
-  aspect-ratio: 5/1;
+  aspect-ratio: 3/1;
   object-fit: cover;
+}
+
+.main_dishes{
+  margin: 5px;
 }
 
 .main_dishes img{
@@ -26,8 +40,8 @@ header img{
 
 table{
   border: 1px solid grey;
-  border-radius: 5px;
   width: 100%;
+  margin-top: 10px;
 }
 
 tr{
@@ -51,27 +65,32 @@ justify-content: space-between;
   padding-bottom: 50px;
 }
 
-.main_dishes h2 {
-  background-color: orange;
+.main_dishes h2{
+  background-color: rgb(225, 224, 224);
 }
 
-h1 {
+h1{
   font-size: 34px;
 }
 
-.basket_table {
+.basket{
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.basket_table{
   display: flex;
 }
 
-.basket_table th {
+.basket_table th{
   font-size: 24px;
 }
 
-.basket_table tr {
+.basket_table tr{
   align-items: center;
+  gap: 50px;
 }
 
-.basket_table td {
+.basket_table td{
   display: flex;
   padding: 5px;
   gap: 5px;
