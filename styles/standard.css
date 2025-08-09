@@ -5,6 +5,10 @@
     max-width: 1440px;
 }
 
+.content_max_width{
+    max-width: 1440px;
+}
+
 main {
     display: flex;
 }
@@ -17,18 +21,24 @@ header{
 }
 
 header img{
-    height: 58px;
+    height: 70px;
     padding: 12px 0px 12px 12px;
 }
 
-footer {
+footer{
     height: 80px;
     background-color: orange;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-footer img{
+.footer_logo{
+    height: 58px;
+    padding: 12px 0px 12px 12px;
+}
+
+.social_media_section img{
     height: 58px;
     padding: 12px 0px 12px 12px;
 }
