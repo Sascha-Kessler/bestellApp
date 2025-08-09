@@ -1,6 +1,5 @@
 
 let basket = [];
-let basketDishesAmount = [];
 let allDishes = {
   mainDishes: mainDishes,
   desserts: desserts,
@@ -101,14 +100,14 @@ function IncreaseBasketDishValue(dishID, indexBasket){
 
 function calculatePrice(){
     let dishesTotal = 0;
-    let deliveryFee;
+    let deliveryFee = 2.50;
     
     for (let index = 0; index < basket.length; index++) {
         let dish = basket[index];
         let amount = dish.amount || 1;
         dishesTotal += dish.price*amount; 
     } if (dishesTotal < 20) {
-        deliveryFee = 5;
+        deliveryFee = 2.50;
     } else {
         deliveryFee = 0;
     }

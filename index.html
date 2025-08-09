@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
     <script src="./scripts/db.js"></script>
     <script src="./scripts/localStorage.js"></script>
     <script src="./scripts/template.js"></script>
@@ -35,8 +36,13 @@
                        <h1>Pizza Heaven</h1>
                         <a href="https://www.google.com/" target="_blank">Bewertung (4,2 von 5)</a>
                    </header>
+                   <nav>
+                        <a href="#main_dishes">Hauptspeisen</a>
+                        <a href="#desserts">Desserts</a>
+                        <a href="#drinks">Getränke</a>
+                    </nav>
                 </article>
-                <article>
+                <article id="main_dishes">
                     <figure class="main_dishes">
                             <img src="./assets/img/main_dishes.jpg" alt="Hauptgerichte">
                             <h2>Hauptgerichte</h2>
@@ -45,7 +51,7 @@
                         </section>
                     </figure>
                 </article>
-                <article>
+                <article id="desserts">
                     <figure class="desserts">
                             <img src="./assets/img/tiramisu.jpg" alt="Desserts">
                             <h2>Desserts</h2>
@@ -54,7 +60,7 @@
                         </section>
                     </figure>
                 </article>
-                <article>
+                <article id="drinks">
                     <figure class="drinks">
                             <img src="./assets/img/drink.jpg" alt="drinks">
                             <h2>Getränke</h2>
@@ -77,7 +83,7 @@
                         </tr>
                         <tr>
                             <th>Lieferkosten:</th>
-                            <td id="delivery_costs">5,00€</td>
+                            <td id="delivery_costs"></td>
                         </tr>
                         <tr>
                             <th>Gesamt:</th>

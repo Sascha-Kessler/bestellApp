@@ -1,4 +1,5 @@
 *{
+    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -41,4 +42,21 @@ footer{
 .social_media_section img{
     height: 58px;
     padding: 12px 0px 12px 12px;
+}
+
+nav{
+    display: flex;
+    gap: 24px;
+    background-color: rgba(240, 240, 240, 0.8);
+    margin-top: 20px;
+}
+
+nav a{
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: orange;
 }
