@@ -6,13 +6,12 @@ let allDishes = {
   desserts: desserts,
   drinks: drinks
 };
+
 function init(){
     renderMainDishes();
     renderDesserts();
     renderDrinks();
 }
-
-
 
 function renderMainDishes(){
     let dishRef = document.getElementById('main_dishes_section');

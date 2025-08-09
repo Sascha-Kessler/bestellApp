@@ -8,3 +8,27 @@
 main {
     display: flex;
 }
+
+header{
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+header img{
+    height: 58px;
+    padding: 12px 0px 12px 12px;
+}
+
+footer {
+    height: 80px;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+}
+
+footer img{
+    height: 58px;
+    padding: 12px 0px 12px 12px;
+}
