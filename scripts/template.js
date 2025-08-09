@@ -25,7 +25,7 @@ function getDessertsTemplate(dessertsRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button onclick="addDishToBasket(${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
+                    <th><button onclick="addDessertToBasket(${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -44,7 +44,7 @@ function getDrinksTemplate(drinksRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button onclick="addDishToBasket(${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
+                    <th><button onclick="addDrinkToBasket(${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>

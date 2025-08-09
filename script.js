@@ -1,5 +1,4 @@
-//let keysMainDishes = Object.keys(mainDishes);
-let dishes = [];
+
 let basket = [];
 let basketDishesAmount = [];
 let allDishes = {
@@ -50,6 +49,20 @@ function renderBasekt(){
 
 function addDishToBasket(basketAddIndex){
    let basketRef = allDishes.mainDishes[basketAddIndex];
+    basket.push(basketRef); 
+    
+    renderBasekt();
+}
+
+function addDessertToBasket(basketAddIndex){
+   let basketRef = allDishes.desserts[basketAddIndex];
+    basket.push(basketRef); 
+    
+    renderBasekt();
+}
+
+function addDrinkToBasket(basketAddIndex){
+   let basketRef = allDishes.drinks[basketAddIndex];
     basket.push(basketRef); 
     
     renderBasekt();
