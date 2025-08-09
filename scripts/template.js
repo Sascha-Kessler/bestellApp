@@ -1,12 +1,50 @@
 
 function getMainDishesTemplate(dishRefIndex){
-    let TemplateDish = dishes[dishRefIndex];
+    let TemplateDish = allDishes.mainDishes[dishRefIndex];
     
     return `
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
                     <th><button onclick="addDishToBasket(${dishRefIndex}); calculatePrice(${dishRefIndex})">+</button></th>
+                </tr>
+                <tr>
+                    <td>${TemplateDish.price.toFixed(2)}€</td>
+                </tr>
+                <tr>
+                    <td>${TemplateDish.description}</td>
+               </tr>
+           </table>
+        `
+}
+
+function getDessertsTemplate(dessertsRefIndex){
+    let TemplateDish = allDishes.desserts[dessertsRefIndex];
+    
+    return `
+            <table>
+                <tr>
+                    <th>${TemplateDish.name}</th>
+                    <th><button onclick="addDishToBasket(${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
+                </tr>
+                <tr>
+                    <td>${TemplateDish.price.toFixed(2)}€</td>
+                </tr>
+                <tr>
+                    <td>${TemplateDish.description}</td>
+               </tr>
+           </table>
+        `
+}
+
+function getDrinksTemplate(drinksRefIndex){
+    let TemplateDish = allDishes.drinks[drinksRefIndex];
+    
+    return `
+            <table>
+                <tr>
+                    <th>${TemplateDish.name}</th>
+                    <th><button onclick="addDishToBasket(${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>

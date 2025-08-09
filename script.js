@@ -1,21 +1,41 @@
-let keys = Object.keys(myDishes);
+//let keysMainDishes = Object.keys(mainDishes);
 let dishes = [];
 let basket = [];
 let basketDishesAmount = [];
-
+let allDishes = {
+  mainDishes: mainDishes,
+  desserts: desserts,
+  drinks: drinks
+};
 function init(){
-    renderDishes();
+    renderMainDishes();
+    renderDesserts();
+    renderDrinks();
 }
 
-for (let indexMyDishes = 0; indexMyDishes < keys.length; indexMyDishes++) {
-    dishes.push(myDishes[keys[indexMyDishes]]);   
-}
 
-function renderDishes(){
+
+function renderMainDishes(){
     let dishRef = document.getElementById('main_dishes_section');
 
-        for (let dishRefIndex = 0; dishRefIndex < dishes.length; dishRefIndex++) {
+        for (let dishRefIndex = 0; dishRefIndex < allDishes.mainDishes.length; dishRefIndex++) {
             dishRef.innerHTML += getMainDishesTemplate(dishRefIndex);
+        }
+}
+
+function renderDesserts(){
+    let dessertsRef = document.getElementById('desserts_section');
+
+        for (let dessertsRefIndex = 0; dessertsRefIndex < allDishes.desserts.length; dessertsRefIndex++) {
+            dessertsRef.innerHTML += getDessertsTemplate(dessertsRefIndex);
+        }
+}
+
+function renderDrinks(){
+    let drinksRef = document.getElementById('drinks_section');
+
+        for (let drinksRefIndex = 0; drinksRefIndex < allDishes.drinks.length; drinksRefIndex++) {
+            drinksRef.innerHTML += getDrinksTemplate(drinksRefIndex);
         }
 }
 
@@ -29,7 +49,7 @@ function renderBasekt(){
 }
 
 function addDishToBasket(basketAddIndex){
-   let basketRef = dishes[basketAddIndex];
+   let basketRef = allDishes.mainDishes[basketAddIndex];
     basket.push(basketRef); 
     
     renderBasekt();
