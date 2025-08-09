@@ -7,7 +7,7 @@ function getMainDishesTemplate(dishRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button onclick="addDishToBasket(${dishRefIndex}); calculatePrice(${dishRefIndex})">+</button></th>
+                    <th><button class="buttons" onclick="addDishToBasket(${dishRefIndex}); calculatePrice(${dishRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -26,7 +26,7 @@ function getDessertsTemplate(dessertsRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button onclick="addDessertToBasket(${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
+                    <th><button class="buttons"  onclick="addDessertToBasket(${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -45,7 +45,7 @@ function getDrinksTemplate(drinksRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button onclick="addDrinkToBasket(${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
+                    <th><button class="buttons" onclick="addDrinkToBasket(${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -70,9 +70,9 @@ function getBasketTemplate(basketRefIndex){
                 </tr>
                 <tr>
                     <td>
-                        <button onclick="DecreaseBasketDishValue('${dishID}', ${basketRefIndex}); saveDishesInputValueToLocalStorage('${dishID}')">-</button> 
+                        <button class="buttons"  onclick="DecreaseBasketDishValue('${dishID}', ${basketRefIndex}); saveDishesInputValueToLocalStorage('${dishID}')">-</button> 
                         <input  id="basketDishesValue${dishID}" type="number" value="${TemplateBasket.amount}" readonly >
-                        <button onclick="IncreaseBasketDishValue('${dishID}', ${basketRefIndex}); saveDishesInputValueToLocalStorage('${dishID}'); calculatePrice(${basketRefIndex})">+</button>  
+                        <button class="buttons"  onclick="IncreaseBasketDishValue('${dishID}', ${basketRefIndex}); saveDishesInputValueToLocalStorage('${dishID}'); calculatePrice(${basketRefIndex})">+</button>  
                     </td>
                     <td>${dishTotal}</td>
                     <td>

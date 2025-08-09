@@ -17,6 +17,18 @@ let dishes = {
         "price": 10.50,
         "description": "mit Ruccola und frischem Parmesan",
         "amount" : 1
+    },
+    {
+        "name": "Pizza Tuna",
+        "price": 9.70,
+        "description": "mit Mozzarella, Thunfisch, Zwiebeln und Knoblauch",
+        "amount" : 1
+    },
+    {
+        "name": "Pizza Diavolo",
+        "price": 10.90,
+        "description": "mit Peperoniwurst, Jalapenos, Mozzarella und Zwiebeln",
+        "amount" : 1
     }
 ],
 
@@ -33,6 +45,12 @@ let dishes = {
         "description": "klassisches Tiramisu",
         "amount" : 1  
     },
+    {
+        "name": "Panna Cotta",
+        "price": 4.90,
+        "description": "Sahnig, cremig, mit einem Hauch Vanille ",
+        "amount" : 1  
+    }
 ],
 
     "drinks" : [

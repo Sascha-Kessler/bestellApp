@@ -80,7 +80,8 @@ justify-content: space-between;
   width: 300px;
   flex-grow: 1;
   border: 1px solid black;
-  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 h1{
@@ -108,4 +109,18 @@ h1{
   display: flex;
   padding: 5px;
   gap: 5px;
+}
+
+.order_alert{
+ 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }

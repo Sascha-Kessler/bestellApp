@@ -1,4 +1,4 @@
-button {
+.buttons {
   width: 25px;
   height: 25px;
   border: 1px solid grey;
@@ -13,11 +13,28 @@ button {
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-button:hover {
+.buttons:hover {
   background-color: #fff4e6;
 }
 
-button:active {
+.buttons:active {
+  transform: scale(0.95);
+}
+
+.order_button{
+  background-color: #ff7a00;
+  border: 1px solid grey;
+  padding: 12px;
+  margin-top: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.order_button:hover {
+  background-color: #fff4e6;
+}
+
+.order_button:active {
   transform: scale(0.95);
 }
 

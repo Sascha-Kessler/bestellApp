@@ -9,7 +9,7 @@ for (let indexDishes = 0; indexDishes < dishesKey.length; indexDishes++) {
     let category = dishesKey[indexDishes];
 
     if (category === "mainDishes") {
-        mainDishes.push(...dishes[category]);
+        mainDishes.push(...dishes[category]);           // durch ... wird jedes Gericht einzeln übernommen(spread methode), würde man dishes anstatt ... nehmen würd alles in das neue Array gepushed aber als ganzen sprich mainDishes.lenght wär 1;
     }
     if (category === "desserts") {
         desserts.push(...dishes[category]);
@@ -131,5 +131,14 @@ function calculatePrice(){
     document.getElementById('dishes_price').innerHTML = dishesTotal.toFixed(2) + '€';
     document.getElementById('delivery_costs').innerHTML = deliveryFee.toFixed(2) + '€';
     document.getElementById('total_price').innerHTML = totalPrice.toFixed(2) + '€';  
+}
+
+function showAlertWindow(){
+    
+    let alert = document.getElementById('alert');
+    alert.classList.remove('d_none');
+    basket.length = 0;
+    renderBasekt();
+    calculatePrice();
 }
 

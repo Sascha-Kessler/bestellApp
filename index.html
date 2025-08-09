@@ -24,8 +24,10 @@
     </header>
     
     <main>
+        
         <div class="content_wrapper">
             <section class="content">
+                <div id="alert" class="order_alert d_none"><p>Testbestellung aufgenommen</p></div>
                 <article>
                     <figure class="banner">
                         <img src="./assets/img/banner.jpg" alt="Banner Pic">
@@ -83,14 +85,15 @@
                             </tr>
                             <tr>
                                 <th>Lieferkosten:</th>
-                                <td id="delivery_costs"></td>
+                                <td id="delivery_costs">2,50€</td>
                             </tr>
                             <tr>
                                 <th>Gesamt:</th>
-                                <td id="total_price"></td>
+                                <td id="total_price">2,50€</td>
                             </tr>
                         </table>
                         <p>Ab einem Bestellwert von 20€ <br>zahlen sie keine Lieferkosten</p>
+                        <button onclick="showAlertWindow()" class="order_button">Bestellung jetzt abschicken</button>
                     </section>
                 </section>
             </article>
@@ -110,6 +113,9 @@
                     <img src="./assets/icons/tripadvisor_logo.png" alt="tripadvisor_logo">
                 </a>
          </section>
+         
+            
+         
     </footer>
 </body>
 </html>
