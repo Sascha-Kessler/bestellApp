@@ -1,6 +1,7 @@
 
 function getMainDishesTemplate(dishRefIndex){
-    let TemplateDish = allDishes.mainDishes[dishRefIndex];
+    
+    let TemplateDish = mainDishes[dishRefIndex];
     
     return `
             <table>
@@ -19,7 +20,7 @@ function getMainDishesTemplate(dishRefIndex){
 }
 
 function getDessertsTemplate(dessertsRefIndex){
-    let TemplateDish = allDishes.desserts[dessertsRefIndex];
+    let TemplateDish = mainDishes[dessertsRefIndex];
     
     return `
             <table>
@@ -38,7 +39,7 @@ function getDessertsTemplate(dessertsRefIndex){
 }
 
 function getDrinksTemplate(drinksRefIndex){
-    let TemplateDish = allDishes.drinks[drinksRefIndex];
+    let TemplateDish = mainDishes[drinksRefIndex];
     
     return `
             <table>

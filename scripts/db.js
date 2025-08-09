@@ -1,5 +1,6 @@
-let mainDishes = [
-    {
+let dishes = {
+    "mainDishes" : [
+        {
         "name": "Pizza Margerita",
         "price": 9.00,
         "description": "mit Tomatensauce und Käse",
@@ -17,9 +18,9 @@ let mainDishes = [
         "description": "mit Ruccola und frischem Parmesan",
         "amount" : 1
     }
-]
+],
 
-let desserts = [
+    "desserts" : [
     {
         "name": "Fritas (5 Stück)",
         "price": 4.90,
@@ -31,10 +32,10 @@ let desserts = [
         "price": 4.90,
         "description": "klassisches Tiramisu",
         "amount" : 1  
-    }
-]
+    },
+],
 
-let drinks = [
+    "drinks" : [
     {
         "name": "Cola 1,0l",
         "price": 3.05,
@@ -53,4 +54,5 @@ let drinks = [
         "description": "Die Apfelschorle begeistert mit ihrem einmaligen Geschmack und maximaler Erfrischung.",
         "amount" : 1  
     }
-]
+],
+}

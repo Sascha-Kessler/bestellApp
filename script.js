@@ -1,10 +1,23 @@
 
 let basket = [];
-let allDishes = {
-  mainDishes: mainDishes,
-  desserts: desserts,
-  drinks: drinks
-};
+let dishesKey = Object.keys(dishes);
+let mainDishes = [];
+let desserts = [];
+let drinks = [];
+
+for (let indexDishes = 0; indexDishes < dishesKey.length; indexDishes++) {
+    let category = dishesKey[indexDishes];
+
+    if (category === "mainDishes") {
+        mainDishes.push(...dishes[category]);
+    }
+    if (category === "desserts") {
+        desserts.push(...dishes[category]);
+    }
+    if (category === "drinks") {
+        drinks.push(...dishes[category]);
+    }
+}
 
 function init(){
     renderMainDishes();
@@ -12,10 +25,11 @@ function init(){
     renderDrinks();
 }
 
+
 function renderMainDishes(){
     let dishRef = document.getElementById('main_dishes_section');
 
-        for (let dishRefIndex = 0; dishRefIndex < allDishes.mainDishes.length; dishRefIndex++) {
+        for (let dishRefIndex = 0; dishRefIndex < mainDishes.length; dishRefIndex++) {
             dishRef.innerHTML += getMainDishesTemplate(dishRefIndex);
         }
 }
@@ -23,7 +37,7 @@ function renderMainDishes(){
 function renderDesserts(){
     let dessertsRef = document.getElementById('desserts_section');
 
-        for (let dessertsRefIndex = 0; dessertsRefIndex < allDishes.desserts.length; dessertsRefIndex++) {
+        for (let dessertsRefIndex = 0; dessertsRefIndex < desserts.length; dessertsRefIndex++) {
             dessertsRef.innerHTML += getDessertsTemplate(dessertsRefIndex);
         }
 }
@@ -31,7 +45,7 @@ function renderDesserts(){
 function renderDrinks(){
     let drinksRef = document.getElementById('drinks_section');
 
-        for (let drinksRefIndex = 0; drinksRefIndex < allDishes.drinks.length; drinksRefIndex++) {
+        for (let drinksRefIndex = 0; drinksRefIndex < drinks.length; drinksRefIndex++) {
             drinksRef.innerHTML += getDrinksTemplate(drinksRefIndex);
         }
 }
@@ -46,21 +60,21 @@ function renderBasekt(){
 }
 
 function addDishToBasket(basketAddIndex){
-   let basketRef = allDishes.mainDishes[basketAddIndex];
+   let basketRef = mainDishes[basketAddIndex];
     basket.push(basketRef); 
     
     renderBasekt();
 }
 
 function addDessertToBasket(basketAddIndex){
-   let basketRef = allDishes.desserts[basketAddIndex];
+   let basketRef = desserts[basketAddIndex];
     basket.push(basketRef); 
     
     renderBasekt();
 }
 
 function addDrinkToBasket(basketAddIndex){
-   let basketRef = allDishes.drinks[basketAddIndex];
+   let basketRef = drinks[basketAddIndex];
     basket.push(basketRef); 
     
     renderBasekt();
