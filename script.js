@@ -4,7 +4,6 @@ let dishesKey = Object.keys(dishes);
 let mainDishes = [];
 let desserts = [];
 let drinks = [];
-
 for (let indexDishes = 0; indexDishes < dishesKey.length; indexDishes++) {
     let category = dishesKey[indexDishes];
 
@@ -20,31 +19,19 @@ for (let indexDishes = 0; indexDishes < dishesKey.length; indexDishes++) {
 }
 
 function init(){
-    renderMainDishes();
-    renderDesserts();
-    renderDrinks();   
+    renderDishes();   
 }
 
-
-function renderMainDishes(){
+function renderDishes(){
     let dishRef = document.getElementById('main_dishes_section');
-
         for (let dishRefIndex = 0; dishRefIndex < mainDishes.length; dishRefIndex++) {
             dishRef.innerHTML += getMainDishesTemplate(dishRefIndex);
         }
-}
-
-function renderDesserts(){
     let dessertsRef = document.getElementById('desserts_section');
-
         for (let dessertsRefIndex = 0; dessertsRefIndex < desserts.length; dessertsRefIndex++) {
             dessertsRef.innerHTML += getDessertsTemplate(dessertsRefIndex);
         }
-}
-
-function renderDrinks(){
     let drinksRef = document.getElementById('drinks_section');
-
         for (let drinksRefIndex = 0; drinksRefIndex < drinks.length; drinksRefIndex++) {
             drinksRef.innerHTML += getDrinksTemplate(drinksRefIndex);
         }
@@ -54,78 +41,38 @@ function renderBasekt(){
     let myBasket = document.getElementById('basket');
     myBasket.innerHTML = "";
 
-       for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-           myBasket.innerHTML += getBasketTemplate(indexBasket);  
-       }
-}
-
-function renderResponsiveBasket(){
     let myRespBasket = document.getElementById('responsive_basket');
     myRespBasket.innerHTML = "";
 
-       for (let indexRespBasket = 0; indexRespBasket < basket.length; indexRespBasket++) {
-           myRespBasket.innerHTML += getBasketTemplate(indexRespBasket);  
+       for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+           myBasket.innerHTML += getBasketTemplate(indexBasket); 
+           myRespBasket.innerHTML += getBasketTemplate(indexBasket);  
        }
 }
 
-function addDishToBasket(basketAddIndex){
-   let basketRef = mainDishes[basketAddIndex];
-    basket.push(basketRef); 
+function addDishToBasket(arrayRef, index){
+   let addToBasket = arrayRef[index];
     
-    renderBasekt();
-    renderResponsiveBasket();
+    if (basket.includes(arrayRef[index])) {
+        addToBasket.amount ++;
+        basket.push[arrayRef[index].amount];    
+    } else{
+        basket.push(addToBasket); 
+    }
+       renderBasekt();     
 }
 
-function addDessertToBasket(basketAddIndex){
-   let basketRef = desserts[basketAddIndex];
-    basket.push(basketRef); 
+function changeDishAmount(step, dishID){
+   let input = document.getElementById(`basketDishesValue${dishID}`);
+    input.value = parseInt(input.value) + step;
     
-    renderBasekt();
-    renderResponsiveBasket();
-}
-
-function addDrinkToBasket(basketAddIndex){
-   let basketRef = drinks[basketAddIndex];
-    basket.push(basketRef); 
-    
-    renderBasekt();
-    renderResponsiveBasket();
-}
-
-function DecreaseBasketDishValue(dishID, indexBasket){
-    let dishValue = document.getElementById(`basketDishesValue${dishID}`);
-    dishValue.value -- ;
-
-    if (dishValue.value < 1) {
-        basket.splice(indexBasket, 1);
-    } else {
-        if (basket[indexBasket]) {
-            basket[indexBasket].amount = Number(dishValue.value);
-            }      
-    }    
-    renderBasekt();
-    renderResponsiveBasket();
-    calculatePrice();  
 }
 
 function deleteFromBasket( indexBasket){
     basket.splice(indexBasket, 1);
 
     renderBasekt();
-    renderResponsiveBasket();
     calculatePrice(); 
-}
-
-function IncreaseBasketDishValue(dishID, indexBasket){
-    let dishValue = document.getElementById(`basketDishesValue${dishID}`);
-    
-    dishValue.value ++; 
-    
-    if (basket[indexBasket]) {
-        basket[indexBasket].amount = Number(dishValue.value);
-    } 
-    renderBasekt();
-    renderResponsiveBasket();
 }
 
 function calculatePrice(){
