@@ -46,3 +46,25 @@ input{
   height: 24px;
   cursor: pointer;
 }
+
+#alert_close_button{
+  background-color: #ff7a00;
+  border: 1px solid grey;
+  padding: 12px;
+  margin-top: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+#alert_close_button:hover {
+  background-color: #fff4e6;
+}
+
+.responsive_basket_button{
+  height: 48px;
+  position: fixed;
+  left: 90%;
+  top: 90%;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  cursor: pointer;
+  z-index: 999;
+}

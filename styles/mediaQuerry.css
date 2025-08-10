@@ -1,0 +1,11 @@
+@media(max-width:650px){
+    .basket{
+        display: none;
+    }
+}
+
+@media(min-width:650px){
+    .responsive_basket_button{
+        display: none;
+    }
+}

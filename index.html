@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/assets.css">
     <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/mediaQuerry.css">
     <script src="./scripts/db.js"></script>
     <script src="./scripts/localStorage.js"></script>
     <script src="./scripts/template.js"></script>
@@ -17,17 +18,16 @@
 <body onload="init()">
     <header>
         <img src="./assets/Logo/Bestell App- Logo.svg" alt="Logo der Bestellapp">
-        <nav>
-            <a href="">Gerichte</a>
-            <a href="">Kontakt</a>
-        </nav>
     </header>
     
     <main>
         
         <div class="content_wrapper">
             <section class="content">
-                <div id="alert" class="order_alert d_none"><p>Testbestellung aufgenommen</p></div>
+                <div id="alert" class="order_alert d_none">
+                    <p class="overlay_text">Testbestellung aufgenommen</p>
+                    <button onclick="closeAltertWindow()" id="alert_close_button">Alles Klar!</button>
+                </div>
                 <article>
                     <figure class="banner">
                         <img src="./assets/img/banner.jpg" alt="Banner Pic">
@@ -97,6 +97,21 @@
                     </section>
                 </section>
             </article>
+            <section>
+                <img onclick="toggleResponsiveBasket()" id="responsive_basket_btn" class="responsive_basket_button" src="./assets/icons/basket.png" alt="basket_button">
+                <div id="responsive_basket_container" class="resp_basket_container d_none">
+                    <section class="responsive_basket_section">
+                        <div id="responsive_basket"></div>
+                        <table>
+                                <tr>
+                                    <th>Gesamt:</th>
+                                    <td id="total_price_responsive">2,50€</td>
+                                </tr>
+                            </table>
+                    </section>
+                </div>
+            </section>
+            
         </div>
     </main>
     <footer>
@@ -112,10 +127,7 @@
                 <a href="https://www.tripadvisor.com/" target="_blank">
                     <img src="./assets/icons/tripadvisor_logo.png" alt="tripadvisor_logo">
                 </a>
-         </section>
-         
-            
-         
+         </section>     
     </footer>
 </body>
 </html>

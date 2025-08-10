@@ -20,7 +20,7 @@ function getMainDishesTemplate(dishRefIndex){
 }
 
 function getDessertsTemplate(dessertsRefIndex){
-    let TemplateDish = mainDishes[dessertsRefIndex];
+    let TemplateDish = desserts[dessertsRefIndex];
     
     return `
             <table>
@@ -39,7 +39,7 @@ function getDessertsTemplate(dessertsRefIndex){
 }
 
 function getDrinksTemplate(drinksRefIndex){
-    let TemplateDish = mainDishes[drinksRefIndex];
+    let TemplateDish = drinks[drinksRefIndex];
     
     return `
             <table>

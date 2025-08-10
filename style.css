@@ -23,14 +23,17 @@
 
 .main_dishes{
   margin: 5px;
+  padding-right: 24px;
 }
 
 .desserts{
   margin: 5px;
+  padding-right: 24px;
 }
 
 .drinks{
   margin: 5px;
+  padding-right: 24px;
 }
 
 .main_dishes img{
@@ -88,12 +91,19 @@ h1{
   font-size: 34px;
 }
 
+#basket{
+  max-height: 600px;
+  overflow: auto;
+}
+
 .basket{
   box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  
 }
 
 .basket_table{
   display: flex;
+  margin-top: 0;
 }
 
 .basket_table th{
@@ -107,20 +117,6 @@ h1{
 
 .basket_table td{
   display: flex;
-  padding: 5px;
   gap: 5px;
 }
 
-.order_alert{
- 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 500px;
-  height: 500px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
