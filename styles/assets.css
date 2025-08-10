@@ -62,8 +62,8 @@ input{
 .responsive_basket_button{
   height: 48px;
   position: fixed;
-  left: 90%;
-  top: 90%;
+  left: 80%;
+  top: 80%;
   box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   cursor: pointer;
   z-index: 999;
