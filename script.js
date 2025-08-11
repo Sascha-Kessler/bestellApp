@@ -8,7 +8,7 @@ for (let indexDishes = 0; indexDishes < dishesKey.length; indexDishes++) {
     let category = dishesKey[indexDishes];
 
     if (category === "mainDishes") {
-        mainDishes.push(...dishes[category]);           // durch ... wird jedes Gericht einzeln übernommen(spread methode), würde man dishes anstatt ... nehmen würd alles in das neue Array gepushed aber als ganzen sprich mainDishes.lenght wär 1;
+        mainDishes.push(...dishes[category]);
     }
     if (category === "desserts") {
         desserts.push(...dishes[category]);
@@ -37,41 +37,36 @@ function renderDishes(){
         }
 }
 
-function renderBasekt(){
+function renderBasket(){
     let myBasket = document.getElementById('basket');
     myBasket.innerHTML = "";
 
     let myRespBasket = document.getElementById('responsive_basket');
     myRespBasket.innerHTML = "";
 
-       for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-           myBasket.innerHTML += getBasketTemplate(indexBasket); 
-           myRespBasket.innerHTML += getBasketTemplate(indexBasket);  
+       for (let basketRefIndex = 0; basketRefIndex < basket.length; basketRefIndex++) {
+           myBasket.innerHTML += getBasketTemplate(basketRefIndex); 
+           myRespBasket.innerHTML += getBasketTemplate(basketRefIndex);  
        }
 }
 
-function addDishToBasket(arrayRef, index){
-   let addToBasket = arrayRef[index];
-    
-    if (basket.includes(arrayRef[index])) {
-        addToBasket.amount ++;
-        basket.push[arrayRef[index].amount];    
-    } else{
-        basket.push(addToBasket); 
-    }
-       renderBasekt();     
-}
-
-function changeDishAmount(step, dishID){
-   let input = document.getElementById(`basketDishesValue${dishID}`);
-    input.value = parseInt(input.value) + step;
-    
+function changeDishAmount(step, arrayRef, index){
+    let addToBasket = arrayRef[index];
+    let basketIndex = basket.findIndex(b => b.name === addToBasket.name);
+   if (basketIndex === -1) {
+        basket.push(addToBasket);
+        basketIndex = basket.length -1;
+        renderBasket(); 
+   } else{
+        basket[basketIndex].amount += step; 
+   }
+   document.getElementById(`basketDishesValue${basketIndex}`).value= basket[basketIndex].amount;
 }
 
 function deleteFromBasket( indexBasket){
     basket.splice(indexBasket, 1);
 
-    renderBasekt();
+    renderBasket();
     calculatePrice(); 
 }
 
@@ -105,8 +100,7 @@ function showAlertWindow(){
         basket.length = 0;
     }
     
-    renderBasekt();
-    renderResponsiveBasket();
+    renderBasket();
     calculatePrice();
 }
 

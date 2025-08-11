@@ -7,7 +7,7 @@ function getMainDishesTemplate(dishRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button class="buttons" onclick="addDishToBasket(mainDishes, ${dishRefIndex}); calculatePrice(${dishRefIndex})">+</button></th>
+                    <th><button class="buttons" onclick="changeDishAmount(1, mainDishes, ${dishRefIndex}); calculatePrice(${dishRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -26,7 +26,7 @@ function getDessertsTemplate(dessertsRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button class="buttons"  onclick="addDishToBasket(desserts, ${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
+                    <th><button class="buttons"  onclick="changeDishAmount(1, desserts, ${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -45,7 +45,7 @@ function getDrinksTemplate(drinksRefIndex){
             <table>
                 <tr>
                     <th>${TemplateDish.name}</th>
-                    <th><button class="buttons" onclick="addDishToBasket(drinks, ${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
+                    <th><button class="buttons" onclick="changeDishAmount(1, drinks, ${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
                 </tr>
                 <tr>
                     <td>${TemplateDish.price.toFixed(2)}€</td>
@@ -59,7 +59,7 @@ function getDrinksTemplate(drinksRefIndex){
 
 function getBasketTemplate(basketRefIndex){
     let TemplateBasket = basket[basketRefIndex];
-    let dishID = TemplateBasket.name.replace(/\s+/g, '_');
+    //let dishID = TemplateBasket.name.replace(/\s+/g, '_');
 
     let dishTotal = (TemplateBasket.price * TemplateBasket.amount).toFixed(2) + '€';
 
@@ -70,13 +70,13 @@ function getBasketTemplate(basketRefIndex){
                 </tr>
                 <tr>
                     <td>
-                        <button class="buttons"  onclick="changeDishAmount(-1, '${dishID}'); saveDishesInputValueToLocalStorage('${dishID}')">-</button> 
-                        <input  id="basketDishesValue${dishID}" type="number" value="${TemplateBasket.amount}" readonly >
-                        <button class="buttons"  onclick="changeDishAmount(1, '${dishID}'); saveDishesInputValueToLocalStorage('${dishID}'); calculatePrice(${basketRefIndex})">+</button>  
+                        <button class="buttons"  onclick="changeDishAmount(-1, basket, ${basketRefIndex})">-</button> 
+                        <input  id="basketDishesValue${basketRefIndex}" type="number" value="${TemplateBasket.amount}" readonly >
+                        <button class="buttons"  onclick="changeDishAmount(1, basket, ${basketRefIndex})">+</button>  
                     </td>
                     <td>${dishTotal}</td>
                     <td>
-                        <img onclick="deleteFromBasket('${dishID}, ${basketRefIndex}')" class="trash_button" src="./assets/icons/trash_button.png" alt="trash_button">
+                        <img onclick="deleteFromBasket()" class="trash_button" src="./assets/icons/trash_button.png" alt="trash_button">
                     </td>
                 </tr>   
            </table>
