@@ -59,7 +59,6 @@ function getDrinksTemplate(drinksRefIndex){
 
 function getBasketTemplate(basketRefIndex){
     let TemplateBasket = basket[basketRefIndex];
-    //let dishID = TemplateBasket.name.replace(/\s+/g, '_');
 
     let dishTotal = (TemplateBasket.price * TemplateBasket.amount).toFixed(2) + '€';
 

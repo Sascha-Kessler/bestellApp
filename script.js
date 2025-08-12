@@ -57,7 +57,14 @@ function changeDishAmount(step, arrayRef, index){
                 renderBasket(); 
         }   else{
                 basket[basketIndex].amount += step; 
+                if (basket[basketIndex].amount === 0) {
+                    basket[basketIndex].amount = 1;
+                    basket.splice(basketIndex, 1);
+                        renderBasket();
             }
+            calculatePrice();
+        }
+            
    document.getElementById(`basketDishesValue${basketIndex}`).value= basket[basketIndex].amount;
 }
 
