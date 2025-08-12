@@ -1,39 +1,38 @@
 
 let basket = [];
 let dishesKey = Object.keys(dishes);
-let mainDishes = [];
-let desserts = [];
-let drinks = [];
+let allDishes = {
+    'mainDishes':[],
+    'desserts':[],
+    'drinks':[]
+}
+
 for (let indexDishes = 0; indexDishes < dishesKey.length; indexDishes++) {
     let category = dishesKey[indexDishes];
-         if (category === "mainDishes") {
-            mainDishes.push(...dishes[category]);
-        }
-            if (category === "desserts") {
-                desserts.push(...dishes[category]);
-            }
-                if (category === "drinks") {
-                    drinks.push(...dishes[category]);
-                }
+    allDishes[category].push(...dishes[category]);
 }
 
 function init(){
-    renderDishes();   
+    renderDishes(allDishes.mainDishes);
+    renderDishes(allDishes.desserts); 
+    renderDishes(allDishes.drinks);    
 }
 
-function renderDishes(){
-    let dishRef = document.getElementById('main_dishes_section');
-        for (let dishRefIndex = 0; dishRefIndex < mainDishes.length; dishRefIndex++) {
-            dishRef.innerHTML += getMainDishesTemplate(dishRefIndex);
+function renderDishes(category){
+        for (let categoryIndex = 0; categoryIndex < category.length; categoryIndex++) {
+            if (allDishes.mainDishes === category) {
+                let dishRef = document.getElementById('main_dishes_section');
+                dishRef.innerHTML += getMainDishesTemplate(categoryIndex);  
         }
+        if (allDishes.desserts === category) {
             let dessertsRef = document.getElementById('desserts_section');
-                for (let dessertsRefIndex = 0; dessertsRefIndex < desserts.length; dessertsRefIndex++) {
-                    dessertsRef.innerHTML += getDessertsTemplate(dessertsRefIndex);
-                }
-                    let drinksRef = document.getElementById('drinks_section');
-                        for (let drinksRefIndex = 0; drinksRefIndex < drinks.length; drinksRefIndex++) {
-                            drinksRef.innerHTML += getDrinksTemplate(drinksRefIndex);
-                }
+            dessertsRef.innerHTML += getDessertsTemplate(categoryIndex);
+        }
+        if (allDishes.drinks === category) {
+            let drinksRef = document.getElementById('drinks_section');
+            drinksRef.innerHTML += getDrinksTemplate(categoryIndex);
+        }
+    }
 }
 
 function renderBasket(){
