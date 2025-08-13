@@ -33,3 +33,15 @@
         display: none;
     }
 }
+
+@media(max-width:650px){
+    .overlay_text{
+        font-size: 30px;
+    }
+}
+
+@media(max-width:390px){
+    .overlay_text{
+        font-size: 24px;
+    }
+}
