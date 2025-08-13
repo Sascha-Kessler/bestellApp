@@ -1,61 +1,22 @@
 
-function getMainDishesTemplate(dishRefIndex){
-    
-    let TemplateDish = allDishes.mainDishes[dishRefIndex];
-    
+function getMainDishesTemplate(categoryKey, index){
+    let dish = allDishes[categoryKey][index];
     return `
             <table>
                 <tr>
-                    <th>${TemplateDish.name}</th>
-                    <th><button class="buttons" onclick="changeDishAmount(1, allDishes.mainDishes, ${dishRefIndex}); calculatePrice(${dishRefIndex})">+</button></th>
+                    <th>${dish.name}</th>
+                    <th><button class="buttons" onclick="changeDishAmount(1, allDishes['${categoryKey}'], ${index}); calculatePrice(${index})">+</button></th>
                 </tr>
                 <tr>
-                    <td>${TemplateDish.price.toFixed(2)}€</td>
+                    <td>${dish.price.toFixed(2)}€</td>
                 </tr>
                 <tr>
-                    <td>${TemplateDish.description}</td>
+                    <td>${dish.description}</td>
                </tr>
            </table>
         `
 }
 
-function getDessertsTemplate(dessertsRefIndex){
-    let TemplateDish = allDishes.desserts[dessertsRefIndex];
-    
-    return `
-            <table>
-                <tr>
-                    <th>${TemplateDish.name}</th>
-                    <th><button class="buttons"  onclick="changeDishAmount(1, allDishes.desserts, ${dessertsRefIndex}); calculatePrice(${dessertsRefIndex})">+</button></th>
-                </tr>
-                <tr>
-                    <td>${TemplateDish.price.toFixed(2)}€</td>
-                </tr>
-                <tr>
-                    <td>${TemplateDish.description}</td>
-               </tr>
-           </table>
-        `
-}
-
-function getDrinksTemplate(drinksRefIndex){
-    let TemplateDish = allDishes.drinks[drinksRefIndex];
-    
-    return `
-            <table>
-                <tr>
-                    <th>${TemplateDish.name}</th>
-                    <th><button class="buttons" onclick="changeDishAmount(1, allDishes.drinks, ${drinksRefIndex}); calculatePrice(${drinksRefIndex})">+</button></th>
-                </tr>
-                <tr>
-                    <td>${TemplateDish.price.toFixed(2)}€</td>
-                </tr>
-                <tr>
-                    <td>${TemplateDish.description}</td>
-               </tr>
-           </table>
-        `
-}
 
 function getBasketTemplate(basketRefIndex){
     let TemplateBasket = basket[basketRefIndex];

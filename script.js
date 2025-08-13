@@ -13,26 +13,20 @@ for (let indexDishes = 0; indexDishes < dishesKey.length; indexDishes++) {
 }
 
 function init(){
-    renderDishes(allDishes.mainDishes);
-    renderDishes(allDishes.desserts); 
-    renderDishes(allDishes.drinks);    
+    renderDishes('mainDishes', 'main_dishes_section');
+    renderDishes('desserts', 'desserts_section'); 
+    renderDishes('drinks', 'drinks_section');    
 }
 
-function renderDishes(category){
-        for (let categoryIndex = 0; categoryIndex < category.length; categoryIndex++) {
-            if (allDishes.mainDishes === category) {
-                let dishRef = document.getElementById('main_dishes_section');
-                dishRef.innerHTML += getMainDishesTemplate(categoryIndex);  
-        }
-        if (allDishes.desserts === category) {
-            let dessertsRef = document.getElementById('desserts_section');
-            dessertsRef.innerHTML += getDessertsTemplate(categoryIndex);
-        }
-        if (allDishes.drinks === category) {
-            let drinksRef = document.getElementById('drinks_section');
-            drinksRef.innerHTML += getDrinksTemplate(categoryIndex);
-        }
+function renderDishes(categoryKey, IdContainer){
+    let list = allDishes[categoryKey];
+    let container = document.getElementById(IdContainer);
+    container.innerHTML= "";
+    for (let index = 0; index < list.length; index++) {
+        container.innerHTML += getMainDishesTemplate(categoryKey, index)
+        
     }
+
 }
 
 function renderBasket(){
@@ -48,10 +42,9 @@ function renderBasket(){
 }
 
 function changeDishAmount(step, arrayRef, index){
-    let addToBasket = arrayRef[index];
-    let basketIndex = basket.findIndex(b => b.name === addToBasket.name);
+    let basketIndex = basket.findIndex(b => b.name === arrayRef[index].name);
         if (basketIndex === -1) {
-            basket.push(addToBasket);
+            basket.push(arrayRef[index]);
             basketIndex = basket.length -1;
                 renderBasket(); 
         }   else{
@@ -61,10 +54,9 @@ function changeDishAmount(step, arrayRef, index){
                     basket.splice(basketIndex, 1);
                         renderBasket();
             }
-            calculatePrice();
-        }
-            
-   document.getElementById(`basketDishesValue${basketIndex}`).value= basket[basketIndex].amount;
+        }  
+        calculatePrice();     
+            document.getElementById(`basketDishesValue${basketIndex}`).value= basket[basketIndex].amount;
 }
 
 function deleteFromBasket( indexBasket){
@@ -75,25 +67,23 @@ function deleteFromBasket( indexBasket){
 }
 
 function calculatePrice(){
-    let dishesTotal = 0;
+    let totalDishesPrice = 0;
     let deliveryFee = 2.50;
     
         for (let index = 0; index < basket.length; index++) {
-                let dish = basket[index];
-                let amount = dish.amount || 1;
-                dishesTotal += dish.price*amount; 
-            } if (dishesTotal < 20) {
+                totalDishesPrice += basket[index].price * basket[index].amount; 
+            } if (totalDishesPrice < 20) {
                  deliveryFee = 2.50;
             } else {
                  deliveryFee = 0;
             }
+    let totalPrice = totalDishesPrice + deliveryFee;
+        document.getElementById('dishes_price').innerHTML = totalDishesPrice.toFixed(2) + '€';
+        document.getElementById('delivery_costs').innerHTML = deliveryFee.toFixed(2) + '€';
+        document.getElementById('total_price').innerHTML = totalPrice.toFixed(2) + '€';
+        document.getElementById('total_price_responsive').innerHTML = totalPrice.toFixed(2) + '€'; 
 
-    let totalPrice = dishesTotal + deliveryFee;
-
-    document.getElementById('dishes_price').innerHTML = dishesTotal.toFixed(2) + '€';
-    document.getElementById('delivery_costs').innerHTML = deliveryFee.toFixed(2) + '€';
-    document.getElementById('total_price').innerHTML = totalPrice.toFixed(2) + '€';
-    document.getElementById('total_price_responsive').innerHTML = totalPrice.toFixed(2) + '€'; 
+    
 }
 
 function showAlertWindow(){
@@ -111,7 +101,6 @@ function showAlertWindow(){
 }
 
 function closeAltertWindow(){
-    
     let alert = document.getElementById('alert');
     alert.classList.add('d_none');  
 }
